@@ -1,0 +1,20 @@
+{
+  "name": "closure-codemod",
+  "version": "1.0.0",
+  "description": "Closure codemod scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/toshi-toma/closure-codemod.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toshi-toma/closure-codemod/issues"
+  },
+  "homepage": "https://github.com/toshi-toma/closure-codemod#readme"
+}
