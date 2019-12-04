@@ -4,7 +4,8 @@
   "description": "Closure codemod scripts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc --noEmit",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/toshi-toma/closure-codemod/issues"
   },
-  "homepage": "https://github.com/toshi-toma/closure-codemod#readme"
+  "homepage": "https://github.com/toshi-toma/closure-codemod#readme",
+  "dependencies": {
+    "jscodeshift": "^0.6.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/jscodeshift": "^0.6.3",
+    "@types/node": "^12.12.14",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
+  }
 }
