@@ -8,7 +8,7 @@ import {
   MemberExpression,
 } from "jscodeshift";
 
-const deprecatedMethods = ["isDef", "isNull"];
+const deprecatedMethods = ["isDef", "isNull", "isDefAndNotNull"];
 
 const transform: Transform = (
   { source }: FileInfo,
@@ -34,6 +34,8 @@ const transform: Transform = (
           return j.binaryExpression("!==", arg, j.identifier("undefined"));
         case "isNull":
           return j.binaryExpression("===", arg, j.identifier("null"));
+        case "isDefAndNotNull":
+          return j.binaryExpression("!=", arg, j.identifier("null"));
       }
     })
     .toSource();
