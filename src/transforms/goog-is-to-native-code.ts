@@ -1,12 +1,4 @@
-import {
-  FileInfo,
-  Transform,
-  API,
-  Options,
-  CallExpression,
-  Identifier,
-  MemberExpression,
-} from "jscodeshift";
+import { FileInfo, Transform, API, Options, CallExpression } from "jscodeshift";
 
 const deprecatedMethods = [
   "isDef",
@@ -14,6 +6,7 @@ const deprecatedMethods = [
   "isDefAndNotNull",
   "isString",
   "isBoolean",
+  "isNumber",
 ];
 
 const transform: Transform = (
@@ -53,6 +46,12 @@ const transform: Transform = (
             "===",
             j.unaryExpression("typeof", arg),
             j.literal("boolean")
+          );
+        case "isNumber":
+          return j.binaryExpression(
+            "===",
+            j.unaryExpression("typeof", arg),
+            j.literal("number")
           );
       }
     })
