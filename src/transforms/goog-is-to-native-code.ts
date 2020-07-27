@@ -8,6 +8,8 @@ import {
   MemberExpression,
 } from "jscodeshift";
 
+const deprecatedMethods = ["isDef", "isNull"];
+
 const transform: Transform = (
   { source }: FileInfo,
   { jscodeshift }: API,
@@ -21,12 +23,18 @@ const transform: Transform = (
       return (
         callee.type === "MemberExpression" &&
         callee.object.name === "goog" &&
-        callee.property.name === "isDef"
+        deprecatedMethods.includes(callee.property.name)
       );
     })
     .replaceWith((path) => {
+      const callee = path.get("callee").value;
       const arg = path.node.arguments[0] as any;
-      return j.binaryExpression("!==", arg, j.identifier("undefined"));
+      switch (callee.property.name) {
+        case "isDef":
+          return j.binaryExpression("!==", arg, j.identifier("undefined"));
+        case "isNull":
+          return j.binaryExpression("===", arg, j.identifier("null"));
+      }
     })
     .toSource();
 };

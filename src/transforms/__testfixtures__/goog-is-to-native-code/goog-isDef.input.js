@@ -33,7 +33,7 @@ if (goog.isDef(obj.foo)) {
 
 const def = goog.isDef(foo) ? "foo" : "bar";
 
-goog.asserts.assert(!goog.isDef(foo));
+goog.asserts.assert(goog.isDef(foo));
 goog.asserts.assert(!goog.isDef(foo) || foo !== "bar");
 
 const f = () => {
@@ -45,23 +45,3 @@ const o = {
 };
 
 m("method", goog.isDef(foo) ? "foo" : "");
-
-/**
- * goog.isNull -> `val === null`
- */
-
-/**
- * goog.isDefAndNotNull -> `val != null`
- */
-
-/**
- * goog.isString -> `typeof val === 'string'`
- */
-
-/**
- * goog.isBoolean -> `typeof val === 'boolean'`
- */
-
-/**
- * goog.isNumber -> `typeof val === 'number'`
- */

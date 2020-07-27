@@ -33,7 +33,7 @@ if (obj.foo !== undefined) {
 
 const def = foo !== undefined ? "foo" : "bar";
 
-goog.asserts.assert(!(foo !== undefined));
+goog.asserts.assert(foo !== undefined);
 goog.asserts.assert(!(foo !== undefined) || foo !== "bar");
 
 const f = () => {
@@ -45,23 +45,3 @@ const o = {
 };
 
 m("method", foo !== undefined ? "foo" : "");
-
-/**
- * goog.isNull -> `val === null`
- */
-
-/**
- * goog.isDefAndNotNull -> `val != null`
- */
-
-/**
- * goog.isString -> `typeof val === 'string'`
- */
-
-/**
- * goog.isBoolean -> `typeof val === 'boolean'`
- */
-
-/**
- * goog.isNumber -> `typeof val === 'number'`
- */
