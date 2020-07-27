@@ -1,4 +1,4 @@
-import { FileInfo, Transform, API, Options, CallExpression } from "jscodeshift";
+import { FileInfo, Transform, API, CallExpression } from "jscodeshift";
 
 const deprecatedMethods = [
   "isDef",
@@ -9,11 +9,7 @@ const deprecatedMethods = [
   "isNumber",
 ];
 
-const transform: Transform = (
-  { source }: FileInfo,
-  { jscodeshift }: API,
-  options: Options
-) => {
+const transform: Transform = ({ source }: FileInfo, { jscodeshift }: API) => {
   const j = jscodeshift;
   return j(source)
     .find(CallExpression)
