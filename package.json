@@ -4,6 +4,7 @@
   "description": "Closure codemod scripts",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "typecheck": "tsc --noEmit",
     "format": "prettier src --write",
     "test": "jest",
