@@ -1,9 +1,10 @@
-const noImpl = ["goog-isBoolean", "isNumber"];
+const noImpl = ["isNumber"];
 const tests = [
   "goog-isDef",
   "goog-isNull",
   "goog-isDefAndNotNull",
   "goog-isString",
+  "goog-isBoolean",
 ];
 
 const defineTest = require("jscodeshift/dist/testUtils").defineTest;
