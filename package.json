@@ -33,7 +33,7 @@
     "@types/jest": "^26.0.7",
     "@types/jscodeshift": "^0.7.1",
     "@types/node": "^14.0.26",
-    "jest": "^26.1.0",
+    "jest": "^26.4.2",
     "jscodeshift": "^0.10.0",
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.3",
