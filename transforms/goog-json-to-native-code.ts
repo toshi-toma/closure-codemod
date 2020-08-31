@@ -29,17 +29,14 @@ const transform: Transform = (
     .find(CallExpression)
     .filter((path) => {
       const callee = path.get("callee").value;
-      if (callee.object && callee.object.object) {
-        return (
-          callee.type === "MemberExpression" &&
-          callee.object &&
-          callee.object.object &&
-          callee.object.object.name === "goog" &&
-          callee.object.property.name === "json" &&
-          deprecatedMethods.includes(callee.property.name)
-        );
-      }
-      return false;
+      return (
+        callee.type === "MemberExpression" &&
+        callee.object &&
+        callee.object.object &&
+        callee.object.object.name === "goog" &&
+        callee.object.property.name === "json" &&
+        deprecatedMethods.includes(callee.property.name)
+      );
     })
     .replaceWith((path) => {
       const callee = path.get("callee").value;

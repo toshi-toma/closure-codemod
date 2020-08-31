@@ -49,6 +49,23 @@ This script handle `quotes` option.
 $ jscodeshift -t node_modules/@toshi-toma/closure-codemod/transforms/goog-object-to-native-code.ts <file or directory> --quotes=single 
 ```
 
+### `goog-array-to-native-code`
+
+```
+$ jscodeshift -t node_modules/@toshi-toma/closure-codemod/transforms/goog-array-to-native-code.ts <file or directory>
+```
+
+This script is going to replace `goog.array.xx` to native code, if replaceable.
+
+https://github.com/google/closure-library/blob/master/closure/goog/array/array.js
+
+Replaceable APIs.
+
+| goog.array | Native Code          |
+| ------- | --------------------- |
+| `goog.array.indexOf | Array.prototype.indexOf |
+
+
 [npm-image]: https://img.shields.io/npm/v/@toshi-toma/closure-codemod.svg
 [npm-url]: https://npmjs.org/package/@toshi-toma/closure-codemod
 [license]: https://img.shields.io/npm/l/@toshi-toma/closure-codemod.svg
