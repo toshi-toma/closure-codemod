@@ -1,12 +1,13 @@
 {
-  "name": "closure-codemod",
-  "version": "0.0.0",
+  "name": "@toshi-toma/closure-codemod",
+  "version": "1.0.0",
   "description": "Closure codemod scripts",
-  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "format": "prettier src --write",
+    "format": "prettier transforms --write",
     "test": "jest",
     "test:w": "jest --watchAll"
   },
@@ -14,13 +15,20 @@
     "type": "git",
     "url": "git+ssh://git@github.com/toshi-toma/closure-codemod.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "jscodeshift",
+    "closure",
+    "goog"
+  ],
+  "author": "toshi-toma",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/toshi-toma/closure-codemod/issues"
   },
   "homepage": "https://github.com/toshi-toma/closure-codemod#readme",
+  "peerDependencies": {
+    "jscodeshift": "0.6.1"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.7",
     "@types/jscodeshift": "^0.7.1",

@@ -1,3 +1,6 @@
+// @ts-ignore
+import { defineTest } from "jscodeshift/dist/testUtils";
+
 const tests = [
   "goog-isDef",
   "goog-isNull",
@@ -6,8 +9,6 @@ const tests = [
   "goog-isBoolean",
   "goog-isNumber",
 ];
-
-const defineTest = require("jscodeshift/dist/testUtils").defineTest;
 
 describe("goog-is-to-native-code", () => {
   tests.forEach((test) =>
