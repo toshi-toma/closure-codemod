@@ -1,7 +1,7 @@
 import { API, FileInfo, CallExpression, Transform } from "jscodeshift";
 import { JSCodeshift, Literal } from "jscodeshift/src/core";
 
-const replaceableMethods = ["indexOf"];
+const replaceableMethods = ["indexOf", "lastIndexOf"];
 
 /**
  * @param source
@@ -27,11 +27,12 @@ const transform: Transform = ({ source }: FileInfo, { jscodeshift }: API) => {
       const callee = path.get("callee").value;
       switch (callee.property.name) {
         case "indexOf":
+        case "lastIndexOf":
           const targetArray = path.node.arguments[0] as any;
           const searchElement = path.node.arguments[1] as any;
           const optFromIndex = path.node.arguments[2] as any;
           return j.callExpression(
-            j.memberExpression(targetArray, j.identifier("indexOf")),
+            j.memberExpression(targetArray, j.identifier(callee.property.name)),
             optFromIndex === undefined
               ? [searchElement]
               : [searchElement, optFromIndex]

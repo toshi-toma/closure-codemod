@@ -64,7 +64,7 @@ Replaceable APIs.
 | goog.array | Native Code          |
 | ------- | --------------------- |
 | `goog.array.indexOf | Array.prototype.indexOf |
-
+| `goog.array.lastIndexOf | Array.prototype.lastIndexOf |
 
 [npm-image]: https://img.shields.io/npm/v/@toshi-toma/closure-codemod.svg
 [npm-url]: https://npmjs.org/package/@toshi-toma/closure-codemod

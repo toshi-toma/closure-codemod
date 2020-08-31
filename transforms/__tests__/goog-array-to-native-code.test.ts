@@ -1,7 +1,7 @@
 // @ts-ignore
 import { defineTest } from "jscodeshift/dist/testUtils";
 
-const tests = ["goog-array-indexOf"];
+const tests = ["goog-array-indexOf", "goog-array-lastIndexOf"];
 
 describe("goog-array-to-native-code", () => {
   tests.forEach((test) =>
