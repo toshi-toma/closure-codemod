@@ -9,19 +9,22 @@ Closure Libray codemod scripts
 ## Setup & Run
 
 ```
-$ npm install -D jscodeshift
-$ git clone git@github.com:toshi-toma/closure-codemod.git
-$ npx jscodeshift -t closure-codemod/lib/transforms<codemod-script> <file>
+$ npm install -D jscodeshift @toshi-toma/closure-codemod
+$ jscodeshift -t node_modules/@toshi-toma/closure-codemod/transforms/<codemod-script-name>.ts <file or directory>
 ```
 
 You can use the `-d` option for a dry-run and use `-p` to print the output for comparison.
+
+```
+$ jscodeshift -t node_modules/@toshi-toma/closure-codemod/transforms/<codemod-script-name>.ts <file or directory> -d -p
+```
 
 ## Included Scripts
 
 ### `goog-is-to-native-code`
 
 ```
-jscodeshift -t closure-codemod/lib/transforms/goog-is-to-native-code.js <file>
+$ jscodeshift -t node_modules/@toshi-toma/closure-codemod/transforms/goog-is-to-native-code.ts <file or directory>
 ```
 
 > Delete goog.is(Def|Null|DefAndNotNull|String|Boolean|Number) from base.js.  
