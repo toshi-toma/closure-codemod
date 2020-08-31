@@ -25,8 +25,6 @@ const transform: Transform = (
 ) => {
   const j: JSCodeshift = jscodeshift;
   const quoteStyle = detectQuoteStyle(options);
-  console.log(options);
-  console.log(quoteStyle);
   return j(source)
     .find(CallExpression)
     .filter((path) => {
