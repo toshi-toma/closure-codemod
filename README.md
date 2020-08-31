@@ -30,6 +30,25 @@ $ jscodeshift -t node_modules/@toshi-toma/closure-codemod/transforms/goog-is-to-
 > Delete goog.is(Def|Null|DefAndNotNull|String|Boolean|Number) from base.js.  
 https://github.com/google/closure-library/releases/tag/v20200204
 
+### `goog-object-to-native-code`
+
+```
+$ jscodeshift -t node_modules/@toshi-toma/closure-codemod/transforms/goog-object-to-native-code.ts <file or directory>
+```
+
+> Deprecate goog.json.parse. Use JSON.parse.
+https://github.com/google/closure-library/commit/01e59bb44b306201078fd40eafcc8d36734cfee3
+
+#### Options
+This script handle `quotes` option.
+
+- `single` - default. transform with single quote.
+- `double` - transform with double quote
+
+```
+$ jscodeshift -t node_modules/@toshi-toma/closure-codemod/transforms/goog-object-to-native-code.ts <file or directory> --quotes=single 
+```
+
 [npm-image]: https://img.shields.io/npm/v/@toshi-toma/closure-codemod.svg
 [npm-url]: https://npmjs.org/package/@toshi-toma/closure-codemod
 [license]: https://img.shields.io/npm/l/@toshi-toma/closure-codemod.svg
